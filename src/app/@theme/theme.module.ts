@@ -2,7 +2,10 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { NbAuthComponent } from './components/auth/auth.component';
+import { NbAuthBlockComponent } from './components/auth/auth-block/auth-block.component';
+import { NbLoginComponent } from './components/auth/login/login.component';
+import {RouterModule} from '@angular/router';
 import {
   NbActionsModule,
   NbCardModule,
@@ -60,6 +63,7 @@ const NB_MODULES = [
   NbContextMenuModule,
   NgbModule,
   NbSecurityModule, // *nbIsGranted directive
+  RouterModule
 ];
 
 const COMPONENTS = [
@@ -76,6 +80,9 @@ const COMPONENTS = [
   SampleLayoutComponent,
   ThreeColumnsLayoutComponent,
   TwoColumnsLayoutComponent,
+  NbAuthComponent,
+  NbAuthBlockComponent,
+  NbLoginComponent
 ];
 
 const ENTRY_COMPONENTS = [
@@ -92,7 +99,7 @@ const PIPES = [
 const NB_THEME_PROVIDERS = [
   ...NbThemeModule.forRoot(
     {
-      name: 'cosmic',
+      name: 'default',
     },
     [ DEFAULT_THEME, COSMIC_THEME, CORPORATE_THEME ],
   ).providers,

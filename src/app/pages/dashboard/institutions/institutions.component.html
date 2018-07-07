@@ -1,0 +1,39 @@
+<nb-card>
+<nb-card-body>
+  <div class='row show-grid'>
+    <div class='col-12' *ngIf='institutions'>
+ <select [(ngModel)]='institution' style='width:100%' class='form-control'>
+   <option disabled selected> -- Choose an institution -- </option>
+   <option *ngFor='let bank of institutions' [ngValue]="bank.bankID">
+     {{bank.bankName}}
+  </option>
+ </select>
+
+</div>
+</div>
+<br>
+<div class='row show-grid'>
+<div class='col-12' style='text-align:center'>
+<button (click)='addToWhitelist()' class='btn btn-success'>
+  Add institution to whitelist
+</button>
+</div>
+</div>
+<br>
+<!-- <div class='row show-grid' style='text-align:center'>
+  <div class='col-12'>
+    <h5>Your whitelist</h5>
+  </div>
+</div>
+<br>
+<div class='row show-grid'>
+  <div class='col-6' *ngFor='let bank of institutions'>
+    <nb-card>
+      <nb-card-body>
+        {{bank}}
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div> -->
+</nb-card-body>
+</nb-card>

@@ -1,0 +1,31 @@
+<nb-card>
+  <nb-card-body>
+    <div style='text-align:center'>
+    <h3>Review passports</h3>
+
+    </div>
+    <br>
+    <div class='row show-grid' *ngIf='(passport | async)?.length >0' style='text-align:center'>
+      <ng-container *ngFor='let passport of passports'>
+      <div class='col-12'>
+        <ng-container *ngIf='client'>
+        <nb-user size='large' name="{{(client | async)?.first_name+' '+(client | async)?.last_name}}"  picture="{{(client | async)?.photoUrl}}"></nb-user>
+        </ng-container>
+        <br>
+        <br>
+        <img style ='max-width:100%' [src]="passport | async">
+        <br>
+        <br>
+        <button (click)='uploadImage()' class='btn btn-success'>Send to KOBY</button>
+      </div>
+    </ng-container>
+
+
+    </div>
+    <div class='row show-grid' *ngIf='(passport | async)?.length===0' style='text-align:center'>
+<div class='col-12'>
+  There is no passport to review
+</div>
+</div>
+  </nb-card-body>
+</nb-card>

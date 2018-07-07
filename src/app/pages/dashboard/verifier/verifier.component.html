@@ -1,0 +1,19 @@
+<nb-card>
+  <nb-card-body>
+    <div style='text-align:center' *ngIf='docs'>
+    <h3>Review passports</h3>
+    <ng-container *ngFor='let doc of docs | async'>
+      <div class='row show-grid' style='text-align:center'>
+        <div class='col-12' >
+          {{doc.documentID}}
+          <br>
+          <br>
+            <button (click)="verify(doc.documentID)" class='btn btn-success'> VERIFY </button>
+        </div>
+
+      </div>
+    </ng-container>
+    </div>
+
+  </nb-card-body>
+</nb-card>

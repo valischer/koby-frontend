@@ -1,0 +1,36 @@
+<nb-card *ngIf='(passport | async)?.length == 0'>
+<nb-card-body>
+<div class='row show-grid' *ngIf='!url' style='text-align:center'>
+  <div class='col-12'>
+  <label>
+    <input  style='display:none' type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput" (change)="onFileSelected($event)">
+    <span class='btn btn-success'> Scan your passport</span>
+</label>
+</div>
+</div>
+<img *ngIf='url'[src]="url" style='max-width:100%; text-align:center'>
+<div class='row show-grid' *ngIf='url'>
+  <div class='col-6'>
+    <button (click)='uploadImage()' class='btn btn-success'>Upload picture</button>
+  </div>
+  <div class='col-6'>
+    <label style='width:100%'>
+      <input  style='display:none' type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput" (change)="onFileSelected($event)">
+      <span style='width:100%' class='btn btn-success'>Re-scan</span>
+  </label>
+  </div>
+</div>
+</nb-card-body>
+</nb-card>
+<nb-card >
+  <nb-card-body>
+    <div class='row show-grid' style='text-align:center'>
+      <div class='col-12'>
+        <h5>Passport verification status</h5>
+        <p *ngIf='isBlockChain'>Your passport is being processed by your bank</p>
+        <p *ngIf='!isBlockChain'>Current status: {{verificationStatus}}</p>
+
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

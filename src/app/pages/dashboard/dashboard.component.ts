@@ -1,6 +1,9 @@
 import {Component, OnDestroy} from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { takeWhile } from 'rxjs/operators/takeWhile' ;
+import 'rxjs/add/operator/map';
+import {AngularFirestore} from 'angularfire2/firestore'
+import {AngularFireAuth} from 'angularfire2/auth'
 
 interface CardSettings {
   title: string;
@@ -14,7 +17,9 @@ interface CardSettings {
   templateUrl: './dashboard.component.html',
 })
 export class DashboardComponent implements OnDestroy {
-
+  user:any;
+  userReady: any  = false;
+  userId: any;
   private alive = true;
 
   lightCard: CardSettings = {
@@ -74,12 +79,18 @@ export class DashboardComponent implements OnDestroy {
     ],
   };
 
-  constructor(private themeService: NbThemeService) {
+  constructor(private themeService: NbThemeService, private afs:AngularFirestore, private afAuth: AngularFireAuth) {
     this.themeService.getJsTheme()
       .pipe(takeWhile(() => this.alive))
       .subscribe(theme => {
         this.statusCards = this.statusCardsByThemes[theme.name];
     });
+    afAuth.user.subscribe(data => {
+      console.log(data.uid)
+      this.userId = data.uid
+      this.user = this.afs.collection('users').doc(this.userId).valueChanges()
+      this.userReady=true;
+    })
   }
 
   ngOnDestroy() {

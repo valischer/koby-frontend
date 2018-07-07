@@ -1,0 +1,22 @@
+<nb-card>
+  <nb-card-body>
+    <ng-container>
+      <div class='row show-grid'>
+        <div class='col-12'>
+      <label>Name</label>
+      <input class='form-control' [(ngModel)]='institution_name' type='text'>
+    </div>
+    <br>
+    <br>
+    <div class='col-12'>
+      <label>ID</label>
+      <input class='form-control' [(ngModel)]='institution_id' type='text'>
+    </div>
+      </div>
+      <br>
+<button (click)='createInstitution()' class='btn btn-success'>Create Bank</button>
+<button (click)='createClient()' class='btn btn-success'>Create Client</button>
+<button (click)='createVerifier()' class='btn btn-success'>Create Verifier</button>
+    </ng-container>
+  </nb-card-body>
+</nb-card>

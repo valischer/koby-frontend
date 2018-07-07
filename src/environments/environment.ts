@@ -10,4 +10,12 @@
 
 export const environment = {
   production: false,
+  firebase: {
+    apiKey: "AIzaSyCgdZ23jtHCH2jOMuDTeUchCfljKmyYtfA",
+    authDomain: "koby-b5203.firebaseapp.com",
+    databaseURL: "https://koby-b5203.firebaseio.com",
+    projectId: "koby-b5203",
+    storageBucket: "koby-b5203.appspot.com",
+    messagingSenderId: "919900158070"
+  }
 };

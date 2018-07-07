@@ -1,0 +1,3 @@
+<ng-container *ngIf='userReady'>
+<nb-user size='large' name="{{(user | async)?.first_name+' '+(user | async)?.last_name}}"  picture="{{(user | async)?.photoUrl}}"></nb-user>
+</ng-container>
