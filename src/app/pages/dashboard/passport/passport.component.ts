@@ -43,7 +43,7 @@ export class PassportComponent implements OnInit, OnDestroy {
          })
        })
       this.passport.subscribe(data =>{
-        this.http.get(encodeURI('http://35.237.86.151:5000/get_doc?id='+data[0].id)).subscribe(data => {
+        this.http.get(encodeURI('http://35.185.117.182:5000/get_doc?id='+data[0].id)).subscribe(data => {
           console.log(data)
           if(data.hasOwnProperty('error')){
             this.isBlockchain=false;

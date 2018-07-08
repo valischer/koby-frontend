@@ -36,7 +36,7 @@ export class VerifierComponent implements OnInit, OnDestroy {
       .subscribe(([oldValue, newValue]) => {
         this.breakpoint = newValue;
       });
-    this.docs = this.http.get('http://35.237.86.151:5000/get_alldocs')
+    this.docs = this.http.get('http://35.185.117.182:5000/get_alldocs')
     this.afAuth.user.subscribe(data =>{
       this.userId = data.uid;
     })
@@ -48,7 +48,7 @@ export class VerifierComponent implements OnInit, OnDestroy {
   }
 
 verify(doc){
-  this.http.get('http://35.237.86.151:5000/verificationComplete?verID='+this.userId+'&docID='+doc+'&status=Authentic').subscribe(data =>{console.log(data)})
+  this.http.get('http://35.185.117.182:5000/verificationComplete?verID='+this.userId+'&docID='+doc+'&status=Authentic').subscribe(data =>{console.log(data)})
 
 }
 

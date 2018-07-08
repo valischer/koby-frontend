@@ -40,9 +40,9 @@ export class InstitutionsComponent implements OnInit, OnDestroy {
          })
        }).subscribe(data => {
          this.passport = data[0].id;
-         this.http.get('http://35.237.86.151:5000/get_doc?&id='+this.passport).subscribe(data =>console.log(data))
+         this.http.get('http://35.185.117.182:5000/get_doc?&id='+this.passport).subscribe(data =>console.log(data))
        });
-      this.http.get('http://35.237.86.151:5000/get_allbanks').subscribe(data => {
+      this.http.get('http://35.185.117.182:5000/get_allbanks').subscribe(data => {
           this.institutions = data;
           console.log(data)
     })
@@ -54,7 +54,7 @@ export class InstitutionsComponent implements OnInit, OnDestroy {
 
   }
   addToWhitelist(){
-this.http.get('http://35.237.86.151:5000/clientALlowBank?docID='+this.passport+'&bankID='+this.institution).subscribe(data =>console.log(data))
+this.http.get('http://35.185.117.182:5000/clientALlowBank?docID='+this.passport+'&bankID='+this.institution).subscribe(data =>console.log(data))
   }
   ngOnDestroy() {
     this.themeSubscription.unsubscribe();

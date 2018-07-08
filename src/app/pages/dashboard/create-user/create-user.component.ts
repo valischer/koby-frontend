@@ -42,13 +42,13 @@ export class CreateUserComponent implements OnInit, OnDestroy {
 
   }
   createInstitution(){
-    this.http.get(encodeURI('http://35.237.86.151:5000/create_bank?id='+this.institution_id+'&name='+this.institution_name)).subscribe(data => console.log(data))
+    this.http.get(encodeURI('http://35.185.117.182:5000/create_bank?id='+this.institution_id+'&name='+this.institution_name)).subscribe(data => console.log(data))
   }
   createClient(){
-    this.http.get(encodeURI('http://35.237.86.151:5000/create_client?id='+this.institution_id+'&name='+this.institution_name)).subscribe(data => console.log(data))
+    this.http.get(encodeURI('http://35.185.117.182:5000/create_client?id='+this.institution_id+'&name='+this.institution_name)).subscribe(data => console.log(data))
   }
   createVerifier(){
-    this.http.get(encodeURI('http://35.237.86.151:5000/create_verifier?id='+this.institution_id+'&name='+this.institution_name)).subscribe(data => console.log(data))
+    this.http.get(encodeURI('http://35.185.117.182:5000/create_verifier?id='+this.institution_id+'&name='+this.institution_name)).subscribe(data => console.log(data))
   }
 //save file from device camera in browser memory, save URL to be used locally
 

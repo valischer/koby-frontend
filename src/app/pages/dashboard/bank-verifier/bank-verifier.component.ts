@@ -67,7 +67,7 @@ export class BankVerifierComponent implements OnInit, OnDestroy {
 
   uploadImage(){
   this.passports[0].subscribe(data =>{
-    this.http.get('http://35.237.86.151:5000/create_doc?&docID='+this.passportsData[0].id+'&docs='+data+'&clientID='+this.passportsData[0].client+'&bankID='+this.userId).subscribe(data=>console.log(data))
+    this.http.get('http://35.185.117.182:5000/create_doc?&docID='+this.passportsData[0].id+'&docs='+data+'&clientID='+this.passportsData[0].client+'&bankID='+this.userId).subscribe(data=>console.log(data))
   })
 
 

@@ -36,7 +36,7 @@ export class BalanceComponent implements OnInit, OnDestroy {
       this.userId = data.uid
       this.user = this.afs.collection('users').doc(this.userId).valueChanges()
       this.userReady=true;
-      this.http.get('http://35.237.86.151:5000/get_bank?id='+this.userId).subscribe(data=>{this.balance=data['tokenBalance']; console.log(data)})
+      this.http.get('http://35.185.117.182:5000/get_bank?id='+this.userId).subscribe(data=>{this.balance=data['tokenBalance']; console.log(data)})
     })
 
   }
